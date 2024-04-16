@@ -1,4 +1,5 @@
-from sqlalchemy.orm import declarative_base
-Base = declarative_base()
-if __name__ == "__main__" :
+from sqlalchemy.orm import DeclarativeBase, MappedAsDataclass
+from dataclasses import dataclass
+
+class Base(DeclarativeBase, MappedAsDataclass):
     pass
