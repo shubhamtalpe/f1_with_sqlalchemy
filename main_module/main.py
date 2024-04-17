@@ -16,6 +16,10 @@ from classes_module.seasons import Seasons
 from classes_module.sprint_results import SprintResults
 from classes_module.status import Status
 from data_readers.circuits_reader import CircuitReader
+from data_readers.seasons_reader import SeasonsReader
+from data_readers.status_reader import StatusReader
+from data_readers.constructors_reader import ConstructorsReader
+from data_readers.drivers_reader import DriversReader
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -30,9 +34,72 @@ def main() -> None :
     obj = CircuitReader()
     session.add_all(obj.readFile())
     session.commit()
+    del obj
 
-    for c in session.query(Circuits).all():
-        print(c)
+    obj = SeasonsReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
+
+    obj = StatusReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
+
+    obj = ConstructorsReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
+
+    obj = DriversReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
+
+    # obj = RacesReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = ConstructorStandingsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = ConstructorResultsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = SprintResultsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = ResultsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = QualifyingReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = PitStopsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = DriverStandingsReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
+
+    # obj = LapTimesReader()
+    # session.add_all(obj.readFile())
+    # session.commit()
+    # del obj
 
 if __name__ == "__main__" :
     main()

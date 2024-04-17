@@ -6,7 +6,7 @@ from datetime import date, time
 class Races(Base):
     __tablename__ = "Races"
     Id : Mapped[int] = mapped_column(primary_key=True)
-    Year : Mapped[int]
+    Year : Mapped[int] = mapped_column(ForeignKey("Seasons.Year"))
     Round : Mapped[int]
     CircuitId : Mapped[int] = mapped_column(ForeignKey("Circuits.Id"))
     Name : Mapped[str]

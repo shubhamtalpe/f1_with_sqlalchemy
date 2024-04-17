@@ -5,7 +5,7 @@ from datetime import time
 
 class PitStops(Base):
     __tablename__ = "PitStops"
-    Id : Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    Id : Mapped[int] = mapped_column(primary_key=True, autoincrement=True, init=False)
     DriverId : Mapped[int] = mapped_column(ForeignKey('Drivers.Id'))
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Stop : Mapped[int]

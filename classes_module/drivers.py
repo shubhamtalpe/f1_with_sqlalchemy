@@ -7,8 +7,8 @@ class Drivers(Base):
     __tablename__ = "Drivers"
     Id : Mapped[int] = mapped_column(primary_key=True)
     DriverRef : Mapped[str]
-    Number : Mapped[int] | None
-    Code : Mapped[str] | None
+    Number : Mapped[int] = mapped_column(nullable=True)
+    Code : Mapped[str] = mapped_column(nullable=True)
     FirstName : Mapped[str]
     LastName : Mapped[str]
     DateOfBirth : Mapped[date]
