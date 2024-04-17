@@ -5,7 +5,7 @@ from sqlalchemy import ForeignKey
 class ConstructorStandings(Base):
     __tablename__ = "ConstructorStandings"
     Id : Mapped[int] = mapped_column(primary_key=True)
-    CircuitId : Mapped[int] = mapped_column(ForeignKey("Circuits.Id"))
+    ConstructorId : Mapped[int] = mapped_column(ForeignKey("Constructors.Id"))
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Points : Mapped[float]
     Position : Mapped[int] | None

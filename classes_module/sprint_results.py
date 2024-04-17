@@ -6,7 +6,7 @@ from datetime import time
 class SprintResults(Base):
     __tablename__ = "SprintResults"
     Id : Mapped[int] = mapped_column(primary_key=True)
-    CircuitId : Mapped[int] = mapped_column(ForeignKey("Circuits.Id"))
+    ConstructorId : Mapped[int] = mapped_column(ForeignKey("Constructors.Id"))
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     DriverId : Mapped[int] = mapped_column(ForeignKey("Drivers.Id"))
     CarNumber : Mapped[int]
