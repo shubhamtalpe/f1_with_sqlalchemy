@@ -1,15 +1,10 @@
-from sqlalchemy import Column, Integer, String
 from main_module.base import Base
+from typing import List
+from sqlalchemy.orm import mapped_column, Mapped, relationship
 
 class Status(Base):
     __tablename__ = "Status"
-    StatusId = Column(Integer, primary_key=True)
-    StatusName = Column(String)
-
-    def __init__(self, *, StatusId : int, StatusName : str) -> None :
-        self.StatusId = StatusId
-        self.StatusName = StatusName
-    
-    def __repr__(self) -> str:
-        return f"""{'Status ID' : <20} : {self.StatusId}
-{'Status Name' : <20} : {self.StatusName}"""
+    Id : Mapped[int] = mapped_column(primary_key=True)
+    StatusName : Mapped[str]
+    Results : Mapped[List['Results']] = relationship(backref='Status', init=False) # type: ignore
+    SprintResults : Mapped[List['SprintResults']] = relationship(backref='Status', init=False) # type: ignore

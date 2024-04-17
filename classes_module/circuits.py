@@ -13,4 +13,4 @@ class Circuits(Base):
     Longitude : Mapped[float]
     Altitude : Mapped[int]
     URL : Mapped[str]
-    Races : Mapped[List['Races']] = relationship('Races', backref="Circuit", init=False) # type: ignore
+    Races : Mapped[List['Races']] = relationship(backref="Circuit", init=False) # type: ignore
