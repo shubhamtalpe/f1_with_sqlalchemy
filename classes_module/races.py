@@ -1,7 +1,7 @@
 from main_module.base import Base
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 from sqlalchemy import ForeignKey
-from datetime import date, time
+from datetime import datetime
 
 class Races(Base):
     __tablename__ = "Races"
@@ -10,16 +10,10 @@ class Races(Base):
     Round : Mapped[int]
     CircuitId : Mapped[int] = mapped_column(ForeignKey("Circuits.Id"))
     Name : Mapped[str]
-    Date : Mapped[date]
-    Time : Mapped[time]
+    Date_Time : Mapped[datetime] = mapped_column(nullable=True)
     URL : Mapped[str]
-    FP1Date : Mapped[date]
-    FP1Time : Mapped[time]
-    FP2Date : Mapped[date]
-    FP2Time : Mapped[time]
-    FP3Date : Mapped[date]
-    FP3Time : Mapped[time]
-    QualiDate : Mapped[date]
-    QualiTime : Mapped[time]
-    SprintDate : Mapped[date]
-    SprintTime : Mapped[time]
+    FP1Date_Time : Mapped[datetime] = mapped_column(nullable=True)
+    FP2Date_Time : Mapped[datetime] = mapped_column(nullable=True)
+    FP3Date_Time : Mapped[datetime] = mapped_column(nullable=True)
+    QualiDate_Time : Mapped[datetime] = mapped_column(nullable=True)
+    SprintDate_Time : Mapped[datetime] = mapped_column(nullable=True)

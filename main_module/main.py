@@ -20,6 +20,7 @@ from data_readers.seasons_reader import SeasonsReader
 from data_readers.status_reader import StatusReader
 from data_readers.constructors_reader import ConstructorsReader
 from data_readers.drivers_reader import DriversReader
+from data_readers.races_reader import RacesReader
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -56,10 +57,10 @@ def main() -> None :
     session.commit()
     del obj
 
-    # obj = RacesReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = RacesReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
     # obj = ConstructorStandingsReader()
     # session.add_all(obj.readFile())
