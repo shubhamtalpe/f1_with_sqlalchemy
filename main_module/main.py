@@ -24,6 +24,7 @@ from data_readers.races_reader import RacesReader
 from data_readers.constructor_standings_reader import ConstructorStandingsReader
 from data_readers.constructor_results_reader import ConstructorResultsReader
 from data_readers.sprint_results_reader import SprintResultsReader
+from data_readers.results_reader import ResultsReader
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -80,10 +81,10 @@ def main() -> None :
     session.commit()
     del obj
 
-    # obj = ResultsReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = ResultsReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
     # obj = QualifyingReader()
     # session.add_all(obj.readFile())
