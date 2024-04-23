@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from typing import List
 from classes_module.sprint_results import SprintResults
+from supporing_scripts.custom_decorators import get_time
 
 class SprintResultsReader:
     
@@ -12,7 +13,7 @@ class SprintResultsReader:
         self.file_path = os.path.join(os.getcwd(), os.path.join('data', 'sprint_results.csv'))
         if not os.path.isfile(self.file_path):
             raise FileNotFoundError(f'Required file not found at path {self.file_path}')
-    
+
     def readFile(self) -> List[SprintResults] :
         self.data = pd.read_csv(self.file_path)
         self.data.replace('\\N', None, inplace=True)

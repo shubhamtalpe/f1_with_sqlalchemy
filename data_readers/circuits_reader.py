@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from classes_module.circuits import Circuits
 from typing import List
+from supporing_scripts.custom_decorators import get_time
 
 class CircuitReader:
     

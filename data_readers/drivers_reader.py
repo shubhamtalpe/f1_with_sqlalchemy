@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from typing import List
 from classes_module.drivers import Drivers
+from supporing_scripts.custom_decorators import get_time
 
 class DriversReader:
     
@@ -12,7 +13,7 @@ class DriversReader:
         self.file_path = os.path.join(os.getcwd(), os.path.join('data', 'drivers.csv'))
         if not os.path.isfile(self.file_path):
             raise FileNotFoundError(f'Required file not found at path {self.file_path}')
-    
+
     def readFile(self) -> List[Drivers] :
         self.data = pd.read_csv(self.file_path)
         self.data['number'] = self.data.number.replace('\\N', None)

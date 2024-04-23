@@ -1,6 +1,6 @@
 import sys, os
 sys.path.append(os.getcwd())
-from main_module.base import Base
+from supporing_scripts.base import Base
 from classes_module.circuits import Circuits
 from classes_module.constructor_results import ConstructorResults
 from classes_module.constructor_standings import ConstructorStandings
@@ -31,10 +31,12 @@ from data_readers.driver_standings_reader import DriverStandingsReader
 from data_readers.lap_times_reader import LapTimesReader
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from supporing_scripts.custom_decorators import get_time
 
-def main() -> None :
-    # engine = create_engine("sqlite:///:memory:")
-    engine = create_engine("sqlite:///sample.db")
+@get_time
+def read_data_from_files() -> None :
+    engine = create_engine("sqlite:///:memory:")
+    # engine = create_engine("sqlite:///sample.db")
     Session = sessionmaker(bind=engine)
 
     Base.metadata.create_all(engine, checkfirst=True)
@@ -111,4 +113,4 @@ def main() -> None :
     del obj
 
 if __name__ == "__main__" :
-    main()
+    read_data_from_files()

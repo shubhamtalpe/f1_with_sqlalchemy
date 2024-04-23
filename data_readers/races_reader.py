@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from typing import List
 from classes_module.races import Races
+from supporing_scripts.custom_decorators import get_time
 
 class RacesReader:
     
@@ -12,7 +13,7 @@ class RacesReader:
         self.file_path = os.path.join(os.getcwd(), os.path.join('data', 'races.csv'))
         if not os.path.isfile(self.file_path):
             raise FileNotFoundError(f'Required file not found at path {self.file_path}')
-    
+
     def readFile(self) -> List[Races] :
         self.data = pd.read_csv(self.file_path)
         self.data = self.data.replace('\\N', None)

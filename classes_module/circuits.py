@@ -1,4 +1,4 @@
-from main_module.base import Base
+from supporing_scripts.base import Base
 from typing import List
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 

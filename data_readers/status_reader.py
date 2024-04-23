@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from classes_module.status import Status
 from typing import List
+from supporing_scripts.custom_decorators import get_time
 
 class StatusReader:
     
@@ -12,7 +13,7 @@ class StatusReader:
         self.file_path = os.path.join(os.getcwd(), os.path.join('data', 'status.csv'))
         if not os.path.isfile(self.file_path):
             raise FileNotFoundError(f'Required file not found at path {self.file_path}')
-    
+
     def readFile(self) -> List[Status] :
         self.data = pd.read_csv(self.file_path)
         statusData : List[Status] = []
