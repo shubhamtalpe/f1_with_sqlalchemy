@@ -8,4 +8,4 @@ class ConstructorResults(Base):
     ConstructorId : Mapped[int] = mapped_column(ForeignKey("Constructors.Id"))
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Points : Mapped[float]
-    Status : Mapped[str]
+    Status : Mapped[str] = mapped_column(nullable=True)

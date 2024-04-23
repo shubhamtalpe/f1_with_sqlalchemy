@@ -9,5 +9,5 @@ class ConstructorStandings(Base):
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Points : Mapped[float]
     Position : Mapped[int] | None
-    PositionText : Mapped[str]
+    PositionText : Mapped[str] = mapped_column(nullable=True)
     Wins : Mapped[int]
