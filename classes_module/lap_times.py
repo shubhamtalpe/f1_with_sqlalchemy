@@ -10,5 +10,5 @@ class LapTimes(Base):
     DriverId : Mapped[int] = mapped_column(ForeignKey("Drivers.Id"))
     LapNumber : Mapped[int]
     Position : Mapped[int]
-    Time : Mapped[time]
+    Time : Mapped[str]
     TimeInMiliseconds : Mapped[int]

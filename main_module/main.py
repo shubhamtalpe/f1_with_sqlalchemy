@@ -25,6 +25,10 @@ from data_readers.constructor_standings_reader import ConstructorStandingsReader
 from data_readers.constructor_results_reader import ConstructorResultsReader
 from data_readers.sprint_results_reader import SprintResultsReader
 from data_readers.results_reader import ResultsReader
+from data_readers.qualifying_reader import QualifyingReader
+from data_readers.pit_stops_reader import PitStopsReader
+from data_readers.driver_standings_reader import DriverStandingsReader
+from data_readers.lap_times_reader import LapTimesReader
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -86,25 +90,25 @@ def main() -> None :
     session.commit()
     del obj
 
-    # obj = QualifyingReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = QualifyingReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
-    # obj = PitStopsReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = PitStopsReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
-    # obj = DriverStandingsReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = DriverStandingsReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
-    # obj = LapTimesReader()
-    # session.add_all(obj.readFile())
-    # session.commit()
-    # del obj
+    obj = LapTimesReader()
+    session.add_all(obj.readFile())
+    session.commit()
+    del obj
 
 if __name__ == "__main__" :
     main()

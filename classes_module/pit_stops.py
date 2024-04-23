@@ -1,7 +1,6 @@
 from main_module.base import Base
 from sqlalchemy.orm import mapped_column, Mapped
 from sqlalchemy import ForeignKey
-from datetime import time
 
 class PitStops(Base):
     __tablename__ = "PitStops"
@@ -10,6 +9,6 @@ class PitStops(Base):
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Stop : Mapped[int]
     Lap : Mapped[int]
-    Time : Mapped[time]
-    Duration : Mapped[time]
-    DurationInMiliseconds : Mapped[time]
+    Time : Mapped[str]
+    Duration : Mapped[str]
+    DurationInMiliseconds : Mapped[int]

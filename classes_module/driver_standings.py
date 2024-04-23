@@ -8,6 +8,6 @@ class DriverStandings(Base):
     DriverId : Mapped[int] = mapped_column(ForeignKey('Drivers.Id'))
     RaceId : Mapped[int] = mapped_column(ForeignKey("Races.Id"))
     Points : Mapped[float]
-    Position : Mapped[int] | None
-    PositionText : Mapped[str]
+    Position : Mapped[int]
+    PositionText : Mapped[str] = mapped_column(nullable=True)
     Wins : Mapped[int]

@@ -1,7 +1,6 @@
 from main_module.base import Base
 from sqlalchemy.orm import mapped_column, Mapped
 from sqlalchemy import ForeignKey
-from datetime import time
 
 class Qualifying(Base):
     __tablename__ = "Qualifying"
@@ -11,6 +10,6 @@ class Qualifying(Base):
     DriverId : Mapped[int] = mapped_column(ForeignKey("Drivers.Id"))
     CarNumber : Mapped[int]
     Position : Mapped[int]
-    Q1Time : Mapped[time]
-    Q2Time : Mapped[time]
-    Q3Time : Mapped[time]
+    Q1Time : Mapped[str] = mapped_column(nullable=True)
+    Q2Time : Mapped[str] = mapped_column(nullable=True)
+    Q3Time : Mapped[str] = mapped_column(nullable=True)
