@@ -155,7 +155,7 @@ def read_data_from_files() -> None :
 if __name__ == "__main__" :
     logging.basicConfig(format=f'[%(levelname)s] : [%(asctime)s] : %(message)s | (Line : %(lineno)d) [%(filename)s]',
                         level=logging.DEBUG,
-                        filename='logs/main_log.log')
+                        filename='logs/main.log')
     logging.debug("Logger initialized")
     logging.debug("Calling read file function")
     read_data_from_files()
