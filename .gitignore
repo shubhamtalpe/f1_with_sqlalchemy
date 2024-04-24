@@ -4,3 +4,4 @@ sample.db
 data/Untitled.ipynb
 data/.ipynb_checkpoints
 data_readers/__pycache__
+logs
